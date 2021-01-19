@@ -8,31 +8,145 @@
     Version: 1.0.4
 */
 
-
-.recipe-chefs-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.splide-contain {
+  height: 60vh;
+  margin-bottom: 30px;
+}
+.splide__track,
+.splide,
+.splide__list,
+.splide__slide {
+  height: 100% !important;
+}
+.glider {
+  height: 100%;
 }
 
-.recipe-chefs-item {
-    width: 33%;
-    text-align: center;
+.item {
+  /* background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNvatMGcVgTOvZFkIXH-t9PpU7zlZ1jXM1Hg&usqp=CAU"); */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+.cardPos {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 100%;
 }
 
-.recipe-chefs-item img {
-    width: 100px;
-    object-fit: contain;
-    height: 100px;
-    border: 4px solid #fff;
-    border-radius: 100%;
+.ilc-card {
+  max-width: 480px;
 }
 
-.recipe-chefs-item p {
-    color: #fff;
-    text-transform: uppercase;
-    line-height: 18px;
-    margin-top: 12px;
-    font-weight: 700;
-    font-size: 1.4em!important;
+.ilc-catLabel {
+  text-transform: uppercase;
+  background-color: #95cca7;
+  padding: 1rem 2rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.ilc-cardtext {
+  flex: 1;
+}
+.ilc-cardinfo {
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.ilc-cardBody {
+  background-color: rgba(255, 255, 255, 0.75);
+  /* mix-blend-mode: lighten; */
+  padding: 1rem 1.5rem;
+  display: flex;
+  color: black !important;
+}
+.ilc-cardtext {
+  color: black !important;
+}
+
+.ilc-cardtext:hover {
+  text-decoration: underline !important;
+}
+
+.glider-btn {
+  opacity: 1;
+  background-color: rgba(142, 204, 167, 0.7) !important;
+  /* padding:1.5rem 3rem; */
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  /* border-radius:4rem;*/
+  border-radius: 26px;
+  /* padding: 1rem 4rem 0 0; */
+  height: auto;
+  font-size: 2rem;
+  width: auto;
+}
+.glider-btn:hover {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.glider-btn i {
+  color: white;
+}
+
+.splide__arrow--prev {
+  left: 0;
+  border-radius: 0 26px 26px 0rem;
+}
+.splide__arrow--next {
+  border-radius: 26px 0 0 26px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  right: 0;
+}
+
+.splide__pagination__page.is-active {
+  background: rgb(227, 0, 98, 1) !important;
+}
+.splide__pagination__page {
+  background: rgb(142, 204, 167) !important;
+}
+.splide__pagination {
+  bottom: -1.5em;
+}
+
+.bookmarkRecipe {
+  fill: none;
+  transition: 0.3s;
+}
+
+.bookmarkRecipe:hover {
+  fill: white;
+  filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.3));
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.bookmarkRecipe:active,
+.bookmarkRecipe:active path {
+  fill: rgb(227, 0, 98, 0.5) !important;
+  stroke: rgb(227, 0, 98, 0.5) !important;
+}
+
+.bookmarkRecipe.active,
+.bookmarkRecipe.active path {
+  fill: rgb(227, 0, 98, 1) !important;
+  stroke: rgb(227, 0, 98, 1) !important;
+}
+
+@media all and (max-width: 750px) {
+  .cardPos {
+    justify-content: space-between;
+  }
+
+  .glider-btn {
+    /* background-color: #ccc; */
+    background-color: rgba(255, 255, 255, 0.5) !important;
+  }
+  .glider-btn:hover {
+    background-color: #ccc !important;
+  }
 }
