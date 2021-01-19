@@ -304,11 +304,7 @@ function ajax_check_user_logged_in() {
  */
 function load_styles()
 {
-	$plugin_url = plugin_dir_url(__FILE__);
-	$plugin_version = $plugin_data['Version'];
-
-	// wp_enqueue_style('style', $plugin_url . 'style.css?' . $plugin_version);
-	wp_enqueue_script('script', get_stylesheet_directory_uri() . '/ilovecooking-script.js?' . $plugin_version);
+	wp_enqueue_script('script', get_stylesheet_directory_uri() . '/script.js');
 }
 
 /**
