@@ -5,13 +5,12 @@
  * File Created: Tuesday, 19th January 2021 5:22:29 pm
  * Author: Eoan O'Dea (eoan@web-space.design)
  * -----
- * File Description: 
- * Last Modified: Tuesday, 19th January 2021 5:28:38 pm
+ * File Description:
+ * Last Modified: Tuesday, 19th January 2021 6:16:26 pm
  * Modified By: Eoan O'Dea (eoan@web-space.design>)
  * -----
  * Copyright 2021 WebSpace, WebSpace
  */
-
 
 //Wait for jQuery to load
 jQuery(document).ready(function ($) {
@@ -23,21 +22,21 @@ jQuery(document).ready(function ($) {
   }
 
   const bookmark = async (link, id, action = "add") => {
-    fetch(link + "?wpfpaction=" + action + "&postid=" + id + "&ajax=1")
-      .then((response) => {
-        if (response.status === 200) {
-          const items = document.querySelectorAll("#bkmk-" + id);
-          if (action === "add") {
-            items.forEach((item) => item.classList.add("active"));
-          } else {
-            items.forEach((item) => item.classList.remove("active"));
+    if (jQuery("body").hasClass("logged-in")) {
+      fetch(link + "?wpfpaction=" + action + "&postid=" + id + "&ajax=1")
+        .then((response) => {
+          if (response.status === 200) {
+            const items = document.querySelectorAll("#bkmk-" + id);
+            if (action === "add") {
+              items.forEach((item) => item.classList.add("active"));
+            } else {
+              items.forEach((item) => item.classList.remove("active"));
+            }
+            return;
           }
-          return;
-        }
-        // You must be logged in
-        throw new Error("You must be logged in");
-      })
-      .catch((err) => console.error(err));
+        })
+        .catch((err) => console.error(err));
+    } else alert("You must be logged in");
   };
 
   window.addEventListener("load", async function () {
