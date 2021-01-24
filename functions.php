@@ -1,5 +1,7 @@
 <?php
 
+use \WpfpInterface\Wrapper;
+
 /**
  * Get the latest post for the food tv category
  * and find a youtube video in it's content
@@ -308,6 +310,20 @@ function load_styles()
 	wp_enqueue_script('script', get_stylesheet_directory_uri() . '/script.js');
 }
 
+
+function load_favourite_posts() {
+    $userFavs= new Wrapper();
+    $posts= $userFavs->all_posts();
+
+    if($posts) {
+        foreach($posts as $post) {
+            echo "<pre>";
+            var_dump($post);
+            echo "</pre>";
+        }
+    } else echo "No recipes found";
+}
+
 /**
  * ACTIONS
  */
@@ -325,3 +341,4 @@ add_shortcode('display-recipe-type-title', 'get_recipe_type_title');
 add_shortcode('display-recipe-types', 'display_recipe_types');
 add_shortcode('display-popular-collections', 'display_recipe_types_home');
 add_shortcode('display-chefs-recipes', 'display_recipe_chefs_home');
+add_shortcode('wp-ilc-favourite-posts', 'load_favourite_posts');
