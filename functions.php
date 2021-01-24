@@ -316,7 +316,10 @@ function load_favourite_posts() {
     $posts= $userFavs->all_posts();
 
     if($posts) {
-        $query = new \WP_Query( $posts );
+        $args = array(
+            'post__in' => $posts
+        );
+        $query = new \WP_Query( $args );
         // foreach($posts as $post) {
             echo "<pre>";
             var_dump($query);
