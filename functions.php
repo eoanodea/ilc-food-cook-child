@@ -325,7 +325,7 @@ function get_favourite_posts_query($query) {
         // $newQuery = new \WP_Query( $args );
 
         $query->set(
-            'post__in', array($posts)
+            'post__in', $posts
         );
     }  else echo "No recipes found";
 
