@@ -334,6 +334,9 @@ function get_favourite_posts_query($query) {
 
     if($posts) {
         $args = array(
+            'taxonomy' => 'recipe_type',
+            'orderby' => 'name',
+            'order'   => 'ASC',
             'post__in' => $posts
         );
         $query->set($args);
