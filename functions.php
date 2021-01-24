@@ -333,15 +333,17 @@ function get_favourite_posts_query($query) {
     $posts= $userFavs->all_posts();
 
     if($posts) {
-        $args = array(
-            'taxonomy' => 'recipe_type',
-            'orderby' => 'name',
-            'order'   => 'ASC',
-            'post__in' => $posts
-        );
-        $newQuery = new \WP_Query( $args );
+        // $args = array(
+        //     'taxonomy' => 'recipe_type',
+        //     'orderby' => 'name',
+        //     'order'   => 'ASC',
+        //     'post__in' => $posts
+        // );
+        // $newQuery = new \WP_Query( $args );
 
-        $query->set($newQuery);
+        $query->set(
+            'post__in', $posts
+        );
     }  else echo "No recipes found";
 
 }
