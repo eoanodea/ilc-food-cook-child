@@ -339,7 +339,9 @@ function get_favourite_posts_query($query) {
             'order'   => 'ASC',
             'post__in' => $posts
         );
-        $query->set($args);
+        $newQuery = new \WP_Query( $args );
+
+        $query->set($newQuery);
     }  else echo "No recipes found";
 
 }
