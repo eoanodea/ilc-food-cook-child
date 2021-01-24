@@ -322,7 +322,7 @@ function load_favourite_posts() {
         $query = new \WP_Query( $args );
         // foreach($posts as $post) {
             echo "<pre>";
-            var_dump($query);
+            // var_dump($query);
             echo "</pre>";
         // }
     } else echo "No recipes found";
