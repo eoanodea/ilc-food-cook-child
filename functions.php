@@ -311,23 +311,6 @@ function load_styles()
 }
 
 
-function load_favourite_posts() {
-    $userFavs= new Wrapper();
-    $posts= $userFavs->all_posts();
-
-    if($posts) {
-        $args = array(
-            'post__in' => $posts
-        );
-        $query = new \WP_Query( $args );
-        // foreach($posts as $post) {
-            echo "<pre>";
-            // var_dump($query);
-            echo "</pre>";
-        // }
-    } else echo "No recipes found";
-}
-
 function get_favourite_posts_query($query) {
     $userFavs= new Wrapper();
     $posts= $userFavs->all_posts();
@@ -342,7 +325,7 @@ function get_favourite_posts_query($query) {
         // $newQuery = new \WP_Query( $args );
 
         $query->set(
-            'post__in', $posts
+            'post__in', array($posts)
         );
     }  else echo "No recipes found";
 
@@ -365,6 +348,5 @@ add_shortcode('display-recipe-type-title', 'get_recipe_type_title');
 add_shortcode('display-recipe-types', 'display_recipe_types');
 add_shortcode('display-popular-collections', 'display_recipe_types_home');
 add_shortcode('display-chefs-recipes', 'display_recipe_chefs_home');
-add_shortcode('wp-ilc-favourite-posts', 'load_favourite_posts');
 
 add_action( 'elementor/query/my_cookbook_query', 'get_favourite_posts_query');
