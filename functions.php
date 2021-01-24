@@ -316,11 +316,12 @@ function load_favourite_posts() {
     $posts= $userFavs->all_posts();
 
     if($posts) {
-        foreach($posts as $post) {
+        $query = new \WP_Query( $posts );
+        // foreach($posts as $post) {
             echo "<pre>";
-            var_dump($post);
+            var_dump($query);
             echo "</pre>";
-        }
+        // }
     } else echo "No recipes found";
 }
 
