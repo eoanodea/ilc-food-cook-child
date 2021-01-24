@@ -328,6 +328,19 @@ function load_favourite_posts() {
     } else echo "No recipes found";
 }
 
+function get_favourite_posts_query($query) {
+    $userFavs= new Wrapper();
+    $posts= $userFavs->all_posts();
+
+    if($posts) {
+        $args = array(
+            'post__in' => $posts
+        );
+        $query->set($args);
+    }  else echo "No recipes found";
+
+}
+
 /**
  * ACTIONS
  */
@@ -346,3 +359,5 @@ add_shortcode('display-recipe-types', 'display_recipe_types');
 add_shortcode('display-popular-collections', 'display_recipe_types_home');
 add_shortcode('display-chefs-recipes', 'display_recipe_chefs_home');
 add_shortcode('wp-ilc-favourite-posts', 'load_favourite_posts');
+
+add_action( 'elementor/query/my_cookbook_query', 'get_favourite_posts_query');
